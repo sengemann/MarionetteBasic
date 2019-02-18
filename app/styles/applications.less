@@ -1,0 +1,41 @@
+@import "~bootstrap/dist/css/bootstrap.min.css";
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #E8E8E8;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: -apple-system, system, sans-serif;
+}
+
+body {
+    > .container-fluid {
+        margin-top: 86px;
+    }
+}
+
+h1 {
+  margin-bottom: 0.5em;
+  font-size: 5em;
+}
+
+.search-results {
+    ul.search-results-list {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        > li a.search-rsult-item {
+            display: block;
+            min-height: 30px;
+            padding: 5px 10px;
+            &:hover {
+                background-color: rgba(175, 175, 175, 0.25);
+                text-decoration: none;
+                color: #222;
+            }
+        }
+    }
+}
