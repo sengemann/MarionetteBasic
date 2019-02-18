@@ -1,16 +1,18 @@
 import Marionette from 'backbone.marionette';
 import Radio from 'backbone.radio';
-import template from '../templates/librarySearch.jst';
+import myTemplate from './SearchWithResults.jst';
 
 const libraryChannel = Radio.channel('userSearchEvent');
 
 export default Marionette.View.extend({
-  template: template,
+  template: myTemplate,
+  
   events: {
     'click button#search-books': 'searchForBook',
     'keypress #book-search': 'searchForBook',
     'click a.search-result-item': 'onSearchResultItemClick'
   },
+
   searchForBook(e) {
     if (e.type ===  'keypress' && e.which === 13 || e.type === 'click') {
       e.preventDefault();

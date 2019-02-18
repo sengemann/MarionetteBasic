@@ -1,11 +1,11 @@
 import Marionette from 'backbone.marionette';
 import Radio from 'backbone.radio';
-import template from '../templates/myLibrary.jst';
+import myTemplate from './Booklist.jst';
 
 const libraryChannel = Radio.channel('userSearchEvent');
 
 export default Marionette.View.extend({
-  template: template,
+  template: myTemplate,
   onRender() {
     this.$el = this.$el.children();
     this.$el.unwrap();
