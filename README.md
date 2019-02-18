@@ -12,3 +12,17 @@ This is a modern JS skeleton with MarionetteJS for [Webpack](https://webpack.git
 * Learn:
     * `public/` dir is fully auto-generated and served by HTTP server.  Write your code in `app/` dir.
     * Place static files you want to be copied from `app/assets/` and `app/styles/` to `public/`.
+
+# DONE
+
+- All component files in component directory
+- Remove "type" from names
+
+# TODO
+
+- Upgrade to webpack 4
+- Split SearchWithResults
+- assets => globalAssets
+- templates => sharedTemplates
+- Unit Tests
+- LESS support
