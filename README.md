@@ -1,6 +1,6 @@
-# Webpack + MarionetteJS + Babel/ES6
+# Webpack4 + MarionetteJS + Babel/ES6
 
-This is a modern JS skeleton with MarionetteJS for [Webpack](https://webpack.github.io/).
+This is a modern JS skeleton with MarionetteJS for [Webpack 4](https://webpack.github.io/). This projected was created with [node](https://nodejs.org/en/) v9.4.0
 
 ## Getting started
 
@@ -17,12 +17,12 @@ This is a modern JS skeleton with MarionetteJS for [Webpack](https://webpack.git
 
 - All component files in component directory
 - Remove "type" from names
+- LESS support
+- Upgrade to webpack 4
 
 # TODO
 
-- Upgrade to webpack 4
-- Split SearchWithResults
-- assets => globalAssets
-- templates => sharedTemplates
-- Unit Tests
-- LESS support
+- Split SearchWithResults (Joe)
+- assets => globalAssets (Scott)
+- templates => sharedTemplates 
+- Unit Tests 
