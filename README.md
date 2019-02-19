@@ -19,10 +19,11 @@ This is a modern JS skeleton with MarionetteJS for [Webpack 4](https://webpack.g
 - Remove "type" from names
 - LESS support
 - Upgrade to webpack 4
+- Split SearchWithResults
+- Upgrade all packages
 
 # TODO
 
-- Split SearchWithResults (Joe)
-- assets => globalAssets (Scott)
+- assets => globalAssets
 - templates => sharedTemplates 
 - Unit Tests 
