@@ -1,16 +1,14 @@
 import Marionette from 'backbone.marionette';
 import Radio from 'backbone.radio';
-import myTemplate from './SearchWithResults.jst';
+import myTemplate from './SearchBar.jst';
 
-const libraryChannel = Radio.channel('userSearchEvent');
+const searchResultUpdateChannel = Radio.channel('searchResultUpdateChannel');
 
 export default Marionette.View.extend({
   template: myTemplate,
-  
   events: {
     'click button#search-books': 'searchForBook',
-    'keypress #book-search': 'searchForBook',
-    'click a.search-result-item': 'onSearchResultItemClick'
+    'keypress #book-search': 'searchForBook'
   },
 
   searchForBook(e) {
@@ -21,24 +19,21 @@ export default Marionette.View.extend({
         url: 'https://www.googleapis.com/books/v1/volumes?q=' + encodeURI($('input#book-search').val()),
         contentType: 'application/json',
         success: function(response) {
-          let results = '';
+          let freshResults = [];
           $.each(response.items, function(index, item) {
             if (item.volumeInfo.industryIdentifiers) {
-              results = results + '<li><a class="search-result-item" href="" data-isbn="' + item.volumeInfo.industryIdentifiers[0].identifier + '">' + item.volumeInfo.title + '</a></li>';
+              freshResults.push({
+                isbn: item.volumeInfo.industryIdentifiers[0].identifier,
+                title: item.volumeInfo.title
+              });
             }
           });
-          $('.search-results .search-results-list').empty().append(results);
+          searchResultUpdateChannel.trigger('fresh-results', freshResults);
         },
         error: function(error) {
           console.error('Error:', error);
         }
       });
     }
-  },
-
-  onSearchResultItemClick(e) {
-    e.preventDefault();
-    libraryChannel.trigger('item:selection', e.currentTarget);
-    // $('ul.library-list').append('<li><a class="library-item" data-isbn="' + e.currentTarget.attributes['data-isbn'].value + '">' + e.currentTarget.text + '</a></li>');
   }
 });

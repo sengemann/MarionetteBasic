@@ -2,7 +2,7 @@ import Marionette from 'backbone.marionette';
 import Radio from 'backbone.radio';
 import myTemplate from './Booklist.jst';
 
-const libraryChannel = Radio.channel('userSearchEvent');
+const booklistChannel = Radio.channel('booklistChannel');
 
 export default Marionette.View.extend({
   template: myTemplate,
@@ -10,9 +10,8 @@ export default Marionette.View.extend({
     this.$el = this.$el.children();
     this.$el.unwrap();
     this.setElement(this.$el);
-    libraryChannel.on('item:selection', function(e) {
-      $('ul.library-list').append('<li><a class="library-item" data-isbn="' + e.attributes['data-isbn'].value + '">' + e.text + '</a></li>');
+    booklistChannel.on('add-book', function(newBook) {
+      $('ul.library-list').append('<li><a class="library-item" data-isbn="' + newBook.isbn + '">' + newBook.title + '</a></li>');
     });
   }
-
 });
