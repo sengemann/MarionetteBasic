@@ -46,12 +46,13 @@ const webpackCommon = {
   },
   output: {
     filename: 'app.js',
-    path: path.join(__dirname, './public'),
+    path: path.join(__dirname, './dist'),
     publicPath: '/'
   },
   plugins: [
     new CopyPlugin([
-      { from: './app/assets/index.html', to: './index.html' }
+      { from: './app/assets/index.html', to: './index.html' },
+      { from: './app/assets/favicon.ico', to: './favicon.ico' }
     ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -78,7 +79,7 @@ switch (process.env.npm_lifecycle_event) {
       mode: 'development',
       devtool: '#inline-source-map',
       devServer: {
-        contentBase: path.join(__dirname, 'public'),
+        contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 9000
       }
@@ -86,6 +87,9 @@ switch (process.env.npm_lifecycle_event) {
     break;
   default:
     module.exports = merge(webpackCommon, {
+      performance: {
+        hints: false
+      },
       mode: 'development',
       devtool: 'source-map'
     });
