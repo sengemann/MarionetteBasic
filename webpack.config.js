@@ -46,7 +46,7 @@ const webpackCommon = {
   },
   output: {
     filename: 'app.js',
-    path: path.join(__dirname, './public'),
+    path: path.join(__dirname, './dist'),
     publicPath: '/'
   },
   plugins: [
@@ -86,6 +86,9 @@ switch (process.env.npm_lifecycle_event) {
     break;
   default:
     module.exports = merge(webpackCommon, {
+      performance: {
+        hints: false
+      },
       mode: 'development',
       devtool: 'source-map'
     });
