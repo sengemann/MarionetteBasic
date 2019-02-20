@@ -1,0 +1,17 @@
+@import "../variables.less";
+
+ul.search-results-list {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    > li a.search-result-item {
+        display: block;
+        min-height: 30px;
+        padding: 5px 10px;
+        &:hover {
+            background-color: @list-item-hover;
+            text-decoration: none;
+            color: @black2;
+        }
+    }
+  }
