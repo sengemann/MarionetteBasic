@@ -9,9 +9,10 @@ This is a modern JS skeleton with MarionetteJS for [Webpack 4](https://webpack.g
 * Run:
     * `npm start` — starts project
     * `npm run build` - builds you project
+        * Outputs to the `dist` folder 
 * Learn:
-    * `public/` dir is fully auto-generated and served by HTTP server.  Write your code in `app/` dir.
-    * Place static files you want to be copied from `app/assets/` and `app/styles/` to `public/`.
+    * `dist/` dir is fully auto-generated and served by HTTP server.  Write your code in `app/` dir.
+    * Place static files you want to be copied from `app/assets/` and `app/styles/` to `dist/`.
 
 # DONE
 

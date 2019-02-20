@@ -51,7 +51,8 @@ const webpackCommon = {
   },
   plugins: [
     new CopyPlugin([
-      { from: './app/assets/index.html', to: './index.html' }
+      { from: './app/assets/index.html', to: './index.html' },
+      { from: './app/assets/favicon.ico', to: './favicon.ico' }
     ]),
     new webpack.ProvidePlugin({
       $: 'jquery',
@@ -78,7 +79,7 @@ switch (process.env.npm_lifecycle_event) {
       mode: 'development',
       devtool: '#inline-source-map',
       devServer: {
-        contentBase: path.join(__dirname, 'public'),
+        contentBase: path.join(__dirname, 'dist'),
         compress: true,
         port: 9000
       }
