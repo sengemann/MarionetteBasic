@@ -32,10 +32,12 @@ const webpackCommon = {
         use: [
           { loader: 'style-loader' },
           { loader: 'css-loader'},
-          { loader: 'less-loader', options: {
-            sourceMaps: true
+          { loader: 'less-loader',
+            options: {
+              sourceMaps: true
+            }
           }
-        }]
+        ]
       }, {
         test: /\.css$/,
         use: {

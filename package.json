@@ -4,6 +4,11 @@
   "author": "Scott Engemann <scott.engemann@proquest.com>",
   "version": "0.0.1",
   "license": "GPL-3.0-or-later",
+  "babel": {
+    "presets": [
+      "@babel/preset-env"
+    ]
+  },
   "repository": {
     "type": "git",
     "url": "https://github.com/sengemann/MarionetteBasic"
